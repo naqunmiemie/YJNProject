@@ -1,0 +1,83 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+}
+
+apply from: '../config/sign.gradle'
+apply from: './version.gradle'
+
+android {
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.yjn.yjnproject"
+        minSdk 28
+        targetSdk 31
+        versionCode android.defaultConfig.versionCode
+        versionName android.defaultConfig.versionName
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        if (propertyHaveSigningConfigs) {
+            config {
+                keyAlias propertyKeyAliasStr
+                keyPassword propertyKeyPwdStr
+                storeFile file(propertyStoreFileStr)
+                storePassword propertyStorePwdStr
+            }
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+            debuggable false
+        }
+        debug {
+            signingConfig signingConfigs.config
+            debuggable true
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    applicationVariants.all { variant ->
+        variant.outputs.all {
+            // 输出apk名称为
+            def buildName = 'YJNProject'
+            if (outputFileName != null && outputFileName.endsWith("_release_unsigned.apk")) {
+                outputFileName = buildName + "_${variant.getVersionName()}_unsigned.apk"
+            } else if (outputFileName != null && outputFileName.endsWith("release.apk")) {
+                outputFileName = buildName + "_${variant.getVersionName()}.apk"
+            } else if (outputFileName != null && outputFileName.endsWith("debug.apk")) {
+                outputFileName = buildName + "_debug.apk"
+            }
+        }
+    }
+    buildFeatures {
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.4.1'
+    implementation 'com.google.android.material:material:1.5.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.3'
+    testImplementation 'junit:junit:4.+'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    implementation project(':common')
+
+}
