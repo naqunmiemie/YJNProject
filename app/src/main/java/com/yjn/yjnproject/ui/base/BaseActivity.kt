@@ -19,7 +19,7 @@ open class BaseActivity : AppCompatActivity() {
 
     protected open fun <T : ViewModel?> getApplicationScopeViewModel(modelClass: Class<T>): T {
         if (mApplicationProvider == null) {
-            mApplicationProvider = ViewModelProvider(App.mInstance,AndroidViewModelFactory(application))
+            mApplicationProvider = ViewModelProvider(App.getInstance(),AndroidViewModelFactory(application))
         }
         return mApplicationProvider!![modelClass]
     }

@@ -28,7 +28,7 @@ open class BaseFragment : Fragment() {
     protected open fun <T : ViewModel?> getActivityScopeViewModel(modelClass: Class<T>): T {
         if (mActivityProvider == null) {
             mActivityProvider = ViewModelProvider(activity,
-                ViewModelProvider.AndroidViewModelFactory(App.mInstance)
+                ViewModelProvider.AndroidViewModelFactory(App.getInstance())
             )
         }
         return mApplicationProvider!![modelClass]
@@ -37,8 +37,8 @@ open class BaseFragment : Fragment() {
     protected open fun <T : ViewModel?> getApplicationScopeViewModel(modelClass: Class<T>): T {
         if (mApplicationProvider == null) {
             mApplicationProvider = ViewModelProvider(
-                App.mInstance,
-                ViewModelProvider.AndroidViewModelFactory(App.mInstance)
+                App.getInstance(),
+                ViewModelProvider.AndroidViewModelFactory(App.getInstance())
             )
         }
         return mApplicationProvider!![modelClass]
