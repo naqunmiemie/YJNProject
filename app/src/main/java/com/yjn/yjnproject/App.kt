@@ -4,12 +4,12 @@ import android.app.Application
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
 import com.yjn.common.Common
-import com.yjn.yjnproject.data.db.MyDatabase
+import com.yjn.yjnproject.data.db.AppDatabase
 
 class App : Application(), ViewModelStoreOwner{
     companion object{
         private lateinit var mInstance : App
-        private lateinit var database : MyDatabase
+        private lateinit var database : AppDatabase
         fun getInstance(): App{
             return mInstance
         }
@@ -24,7 +24,7 @@ class App : Application(), ViewModelStoreOwner{
 
     private fun init() {
         Common.init(mInstance)
-        database = MyDatabase.getInstance(this)
+        database = AppDatabase.getInstance(this)
     }
 
     override fun getViewModelStore(): ViewModelStore {
