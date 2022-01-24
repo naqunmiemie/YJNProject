@@ -3,28 +3,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph"
-    app:startDestination="@id/nav_home">
+    app:startDestination="@id/home">
 
     <fragment
-        android:id="@+id/nav_home"
+        android:id="@+id/home"
         android:name="com.yjn.yjnproject.ui.fragment.HomeFragment"
         android:label="nav_home"
         tools:layout="@layout/fragment_home"/>
 
     <fragment
-        android:id="@+id/nav_discover"
+        android:id="@+id/discover"
         android:name="com.yjn.yjnproject.ui.fragment.DiscoverFragment"
         android:label="nav_discover"
         tools:layout="@layout/fragment_discover"/>
 
     <fragment
-        android:id="@+id/nav_message"
+        android:id="@+id/message"
         android:name="com.yjn.yjnproject.ui.fragment.MessageFragment"
         android:label="nav_message"
         tools:layout="@layout/fragment_message"/>
 
     <fragment
-        android:id="@+id/nav_me"
+        android:id="@+id/me"
         android:name="com.yjn.yjnproject.ui.fragment.MeFragment"
         android:label="nav_me"
         tools:layout="@layout/fragment_me"/>

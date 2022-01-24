@@ -8,7 +8,7 @@ import com.yjn.yjnproject.App
 import com.yjn.yjnproject.data.db.dao.UserDao
 import com.yjn.yjnproject.data.model.User
 
-@Database(entities = [User::class],version = 1)
+@Database(entities = [User::class],version = 1,exportSchema = false)
 abstract class AppDatabase : RoomDatabase(){
     companion object{
         private const val databaseName = "YJNProject_db"
