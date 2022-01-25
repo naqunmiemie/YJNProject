@@ -9,7 +9,7 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bnv_main"
         android:layout_width="0dp"
-        android:layout_height="50dp"
+        android:layout_height="@dimen/dp_50"
         android:background="@color/white"
         app:flow_wrapMode="none"
         app:itemBackground="@null"
