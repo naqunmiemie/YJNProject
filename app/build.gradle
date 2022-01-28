@@ -103,6 +103,10 @@ dependencies {
     implementation 'com.squareup.okhttp3:okhttp:3.12.13'
     // 腾讯 MMKV：https://github.com/Tencent/MMKV
     implementation 'com.tencent:mmkv-static:1.2.11'
+    // Json 解析框架：https://github.com/google/gson
+    implementation 'com.google.code.gson:gson:2.8.9'
+    // Gson 解析容错：https://github.com/getActivity/GsonFactory
+    implementation 'com.github.getActivity:GsonFactory:5.2'
 
     def nav_version = "2.3.5"
     // navigation_Kotlin

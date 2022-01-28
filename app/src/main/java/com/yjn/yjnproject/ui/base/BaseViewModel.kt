@@ -6,14 +6,11 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.LifecycleRegistry
 import androidx.lifecycle.ViewModel
 
-class BaseViewModel : ViewModel(), LifecycleOwner {
+abstract class BaseViewModel : ViewModel(), LifecycleOwner {
     @SuppressLint("StaticFieldLeak")
     private val mLifecycle: LifecycleRegistry = LifecycleRegistry(this)
 
-    constructor(){
-        init{
-
-        }
+    init{
         mLifecycle.handleLifecycleEvent(Lifecycle.Event.ON_CREATE)
         mLifecycle.handleLifecycleEvent(Lifecycle.Event.ON_RESUME)
     }
@@ -26,4 +23,5 @@ class BaseViewModel : ViewModel(), LifecycleOwner {
     override fun getLifecycle(): Lifecycle {
         return mLifecycle
     }
+
 }
