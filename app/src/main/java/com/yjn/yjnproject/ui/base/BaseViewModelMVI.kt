@@ -61,10 +61,8 @@ abstract class BaseViewModelMVI<ViewEvent:BaseViewEvent,ViewState:BaseViewState>
     /**
      * 发送状态
      */
-    fun setState(viewState: ViewState) {
-        viewModelScope.launch {
-            _viewState.emit(viewState)
-        }
+    fun setState(copy: ViewState.() -> ViewState) {
+        val newState = _viewState.value.copy()
+        _viewState.value = newState
     }
-
 }

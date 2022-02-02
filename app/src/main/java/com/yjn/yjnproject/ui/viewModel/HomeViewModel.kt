@@ -8,7 +8,7 @@ import com.yjn.yjnproject.ui.viewState.HomeViewState
 
 class HomeViewModel : BaseViewModelMVI<HomeViewEvent, HomeViewState>() {
     override fun providerInitialState(): HomeViewState {
-        return HomeViewState()
+        return HomeViewState(null)
     }
 
     override fun handleEvent(viewEvent: HomeViewEvent) {

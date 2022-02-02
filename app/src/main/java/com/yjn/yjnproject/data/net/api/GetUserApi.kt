@@ -8,6 +8,7 @@ class GetUserApi : IRequestApi {
         return "users/$userId"
     }
 
+
     fun setUserId(userId: String):GetUserApi{
         this.userId = userId
         return this

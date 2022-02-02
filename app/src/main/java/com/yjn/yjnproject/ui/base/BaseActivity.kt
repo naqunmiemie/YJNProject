@@ -2,6 +2,7 @@ package com.yjn.yjnproject.ui.base
 
 import android.os.Bundle
 import android.os.PersistableBundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
@@ -9,6 +10,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory
 import androidx.viewbinding.ViewBinding
+import com.yjn.common.util.L
 import com.yjn.yjnproject.App
 import java.lang.reflect.ParameterizedType
 
@@ -20,6 +22,7 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
         super.onCreate(savedInstanceState, persistentState)
+        Log.d("!!!","###")
         //利用反射，调用指定ViewBinding中的inflate方法填充视图
         val type = javaClass.genericSuperclass
         val clazz = (type as ParameterizedType).actualTypeArguments[0] as Class<VB>
