@@ -15,15 +15,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>() {
 
     private lateinit var navController: NavController
 
-//    override fun onCreate(savedInstanceState: Bundle?) {
-//        super.onCreate(savedInstanceState)
-//        binding = ActivityMainBinding.inflate(layoutInflater)
-//        setContentView(binding.root)
-//        L.d("!!!")
-//    }
-
     override fun initView() {
-        L.d("!!!")
         val navHostFragment = supportFragmentManager.findFragmentById(R.id.fcv_nav_host_fragment) as NavHostFragment
         navController = navHostFragment.findNavController()
         NavigationUI.setupWithNavController(binding.bnvMain,navController)

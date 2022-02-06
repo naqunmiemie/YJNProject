@@ -12,7 +12,6 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>() {
     }
 
     override fun initView() {
-        L.d("!!!")
     }
 
     override fun initData() {

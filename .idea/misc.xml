@@ -3,27 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/drawable/home_discover_off_ic.xml" value="0.140625" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/drawable/home_discover_on_ic.xml" value="0.140625" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/drawable/home_discover_selector.xml" value="0.140625" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/drawable/home_found_off_ic.xml" value="0.140625" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/drawable/home_home_off_ic.xml" value="0.140625" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/drawable/home_home_on_ic.xml" value="0.140625" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/drawable/home_me_off_ic.xml" value="0.140625" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/drawable/home_me_on_ic.xml" value="0.140625" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/drawable/home_me_selector.xml" value="0.13385416666666666" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/drawable/home_message_off_ic.xml" value="0.140625" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/drawable/home_message_on_ic.xml" value="0.140625" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/drawable/home_message_selector.xml" value="0.140625" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/layout/activity_main.xml" value="0.12447916666666667" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/layout/fragment_blank.xml" value="0.11770833333333333" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/layout/fragment_discover.xml" value="0.11770833333333333" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/layout/fragment_home.xml" value="0.12447916666666667" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/layout/fragment_me.xml" value="0.12447916666666667" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/layout/fragment_message.xml" value="0.12447916666666667" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/menu/menu_bottom_nav.xml" value="0.264" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/common/src/main/res/drawable-v24/image_error_ic.xml" value="0.156" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/common/src/main/res/drawable/ic_launcher_background.xml" value="0.156" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19427083333333334" />
       </map>
     </option>
   </component>

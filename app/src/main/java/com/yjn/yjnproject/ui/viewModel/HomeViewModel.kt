@@ -12,9 +12,10 @@ class HomeViewModel : BaseViewModelMVI<HomeViewEvent, HomeViewState>() {
     }
 
     override fun handleEvent(viewEvent: HomeViewEvent) {
+
         when(viewEvent){
             is HomeViewEvent.InitUserEvent -> HomeRepository.initUserEvent(this@HomeViewModel)
-            is HomeViewEvent.GetUserEvent -> HomeRepository.getUserEvent(this@HomeViewModel)
+            is HomeViewEvent.GetUserEvent -> HomeRepository.getUserEvent(this@HomeViewModel,viewEvent.inputUserName)
             is HomeViewEvent.RefreshUserEvent -> HomeRepository.refreshUserEvent(this@HomeViewModel)
         }
     }

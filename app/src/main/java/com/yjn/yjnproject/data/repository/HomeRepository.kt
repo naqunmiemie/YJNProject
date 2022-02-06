@@ -11,14 +11,28 @@ import com.yjn.yjnproject.ui.viewState.HomeViewState
 import kotlinx.coroutines.launch
 
 object HomeRepository {
+    var userName = "getActivity"
     fun initUserEvent(viewModel: HomeViewModel){
+        getUser(viewModel)
+    }
+
+    fun getUserEvent(viewModel: HomeViewModel,inputUserName: String){
+        userName = inputUserName
+        getUser(viewModel)
+    }
+
+    fun refreshUserEvent(viewModel: HomeViewModel){
+        getUser(viewModel)
+    }
+
+    private fun getUser(viewModel: HomeViewModel){
         EasyHttp.get(viewModel)
-            .api(GetUserApi().setUserId("getActivity"))
+            .api(GetUserApi().setUserId(userName))
             .request(object :OnHttpListener<User?>{
                 override fun onSucceed(user: User?) {
                     if (user != null){
                         viewModel.viewModelScope.launch {
-                            L.d("viewModel.setState(HomeViewState)")
+                            L.d("initUserEvent viewModel.setState(HomeViewState)")
                             viewModel.setState {
                                 copy(
                                     user = user
@@ -32,13 +46,6 @@ object HomeRepository {
                 }
 
             })
-    }
-
-    fun getUserEvent(viewModel: HomeViewModel){
-
-    }
-
-    fun refreshUserEvent(viewModel: HomeViewModel){
 
     }
 
