@@ -2,12 +2,10 @@ package com.yjn.yjnproject.ui.fragment
 
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.yjn.common.util.L
 import com.yjn.yjnproject.databinding.FragmentDiscoverBinding
 import com.yjn.yjnproject.ui.adapter.WAndroidRecycleViewAdapter
 import com.yjn.yjnproject.ui.base.BaseFragment
 import com.yjn.yjnproject.ui.viewModel.DiscoverViewModel
-import com.yjn.yjnproject.ui.viewModel.HomeViewModel
 import kotlinx.coroutines.flow.collect
 
 
@@ -30,6 +28,11 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>() {
             discoverViewModel.getData().collect {
                 adapter.submitData(it)
             }
+        }
+
+        binding.srlDiscover.setOnRefreshListener {
+            adapter.refresh()
+            binding.srlDiscover.isRefreshing = false
         }
     }
 

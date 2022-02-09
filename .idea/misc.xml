@@ -3,9 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/layout/fragment_discover.xml" value="0.13632246376811594" />
-        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/layout/item_w_android.xml" value="0.23072916666666668" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/fragment_discover.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19427083333333334" />
       </map>
     </option>

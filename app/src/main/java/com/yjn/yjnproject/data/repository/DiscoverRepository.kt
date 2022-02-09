@@ -15,12 +15,12 @@ object DiscoverRepository {
     suspend fun searchAuthor(viewModel: DiscoverViewModel,nextPageNumber: Int) : WAndroid?{
         return withContext(Dispatchers.IO){
             val getRequest = EasyHttp.get(viewModel)
-            val nextPageNumber = 19000+nextPageNumber
+            val finalNextPageNumber = 19000+nextPageNumber
             try {
                 val data : WAndroid? = getRequest
-                    .api(SearchAuthorApi().setId(nextPageNumber))
-                    .execute<WAndroid>(object : ResponseClass<WAndroid>() {})
-                T.show("请求成功$nextPageNumber")
+                    .api(SearchAuthorApi().setId(finalNextPageNumber))
+                    .execute(object : ResponseClass<WAndroid>() {})
+                T.show("请求成功$finalNextPageNumber")
                 return@withContext data
             } catch (e: Exception) {
                 EasyLog.printThrowable(getRequest, e)
@@ -28,19 +28,5 @@ object DiscoverRepository {
                 return@withContext null
             }
         }
-//        var data : WAndroid? = null
-//        viewModel.viewModelScope.launch {
-//            val getRequest = EasyHttp.get(viewModel)
-//            try {
-//                data = getRequest
-//                    .api(SearchAuthorApi().setId(19000))
-//                    .execute<WAndroid>(object : ResponseClass<WAndroid>() {})
-//                T.show("请求成功，请看日志")
-//            } catch (e: Exception) {
-//                EasyLog.printThrowable(getRequest, e)
-//                T.show(e.message)
-//            }
-//        }
-//        return data
     }
 }

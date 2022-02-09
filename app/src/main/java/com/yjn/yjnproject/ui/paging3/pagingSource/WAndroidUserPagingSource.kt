@@ -2,6 +2,7 @@ package com.yjn.yjnproject.ui.paging3.pagingSource
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
+import com.yjn.common.util.T
 import com.yjn.yjnproject.data.entity.WAndroid
 import com.yjn.yjnproject.data.repository.DiscoverRepository
 import com.yjn.yjnproject.ui.viewModel.DiscoverViewModel
@@ -15,6 +16,7 @@ class WAndroidUserPagingSource(val viewModel: DiscoverViewModel) : PagingSource<
         //  * nextKey == null -> anchorPage is the last page.
         //  * both prevKey and nextKey null -> anchorPage is the initial page, so
         //    just return null.
+        T.show("refresh")
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)
@@ -29,7 +31,7 @@ class WAndroidUserPagingSource(val viewModel: DiscoverViewModel) : PagingSource<
             if (wAndroid != null) {
                 return LoadResult.Page(
                     data = wAndroid.data,
-                    prevKey = null, // Only paging forward.
+                    prevKey = nextPageNumber - 1,
                     nextKey = nextPageNumber + 1
                 )
             }

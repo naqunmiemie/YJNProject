@@ -24,10 +24,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
     override fun initView() {
         homeViewModel = getFragmentScopeViewModel(HomeViewModel::class.java)
 
-        binding.srlHome.setOnRefreshListener(SwipeRefreshLayout.OnRefreshListener {
+        binding.srlHome.setOnRefreshListener {
             homeViewModel.sendEvent(HomeViewEvent.RefreshUserEvent)
             binding.srlHome.isRefreshing = false
-        })
+        }
         lifecycleScope.launchWhenStarted {
             homeViewModel.viewState.collect {
                 L.d("data changed")
