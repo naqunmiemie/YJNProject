@@ -1,10 +1,10 @@
-package com.yjn.yjnproject.data.model
+package com.yjn.yjnproject.data.entity
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
 
 @Entity
-data class User(
+data class GithubUser(
     @PrimaryKey val uid: Int,
     val avatar_url: String,
     val created_at: String,

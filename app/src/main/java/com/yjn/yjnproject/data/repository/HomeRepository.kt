@@ -4,10 +4,9 @@ import androidx.lifecycle.viewModelScope
 import com.hjq.http.EasyHttp
 import com.hjq.http.listener.OnHttpListener
 import com.yjn.common.util.L
-import com.yjn.yjnproject.data.model.User
+import com.yjn.yjnproject.data.entity.GithubUser
 import com.yjn.yjnproject.data.net.api.GetUserApi
 import com.yjn.yjnproject.ui.viewModel.HomeViewModel
-import com.yjn.yjnproject.ui.viewState.HomeViewState
 import kotlinx.coroutines.launch
 
 object HomeRepository {
@@ -28,14 +27,14 @@ object HomeRepository {
     private fun getUser(viewModel: HomeViewModel){
         EasyHttp.get(viewModel)
             .api(GetUserApi().setUserId(userName))
-            .request(object :OnHttpListener<User?>{
-                override fun onSucceed(user: User?) {
-                    if (user != null){
+            .request(object :OnHttpListener<GithubUser?>{
+                override fun onSucceed(githubUser: GithubUser?) {
+                    if (githubUser != null){
                         viewModel.viewModelScope.launch {
                             L.d("initUserEvent viewModel.setState(HomeViewState)")
                             viewModel.setState {
                                 copy(
-                                    user = user
+                                    githubUser = githubUser
                                 )
                             }
                         }

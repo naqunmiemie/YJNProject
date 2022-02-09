@@ -2,25 +2,25 @@ package com.yjn.yjnproject.data.db.dao
 
 import androidx.lifecycle.LiveData
 import androidx.room.*
-import com.yjn.yjnproject.data.model.User
+import com.yjn.yjnproject.data.entity.GithubUser
 
 @Dao
 interface UserDao {
-    @Query("SELECT * FROM user")
-    fun getAll(): List<User>
+    @Query("SELECT * FROM GithubUser")
+    fun getAll(): List<GithubUser>
 
-    @Query("SELECT * FROM user WHERE uid IN (:userIds)")
-    fun loadAllByIds(userIds: IntArray): List<User>
+    @Query("SELECT * FROM GithubUser WHERE uid IN (:userIds)")
+    fun loadAllByIds(userIds: IntArray): List<GithubUser>
 
     @Insert
-    fun insertAll(vararg users: User)
+    fun insertAll(vararg githubUsers: GithubUser)
 
     @Delete
-    fun delete(user: User)
+    fun delete(githubUser: GithubUser)
 
-    @Query("SELECT * FROM user LIMIT 1")
-    fun findByTop(): LiveData<User>
+    @Query("SELECT * FROM GithubUser LIMIT 1")
+    fun findByTop(): LiveData<GithubUser>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun updateUser(user: User)
+    fun updateUser(githubUser: GithubUser)
 }

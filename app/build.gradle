@@ -70,6 +70,7 @@ android {
 }
 
 dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar','*.aar'])
 
     implementation 'androidx.core:core-ktx:1.3.2'
     implementation 'androidx.appcompat:appcompat:1.4.1'
@@ -105,15 +106,18 @@ dependencies {
     implementation 'com.google.code.gson:gson:2.8.9'
     // Gson 解析容错：https://github.com/getActivity/GsonFactory
     implementation 'com.github.getActivity:GsonFactory:5.2'
-    def nav_version = "2.3.5"
     // navigation_Kotlin
+    def nav_version = "2.3.5"
     implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
     implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
     //https://github.com/bumptech/glide
     implementation 'com.github.bumptech.glide:glide:4.12.0'
     kapt 'com.github.bumptech.glide:compiler:4.12.0'
-
+    //https://developer.android.google.cn/jetpack/androidx/releases/swiperefreshlayout?hl=zh_cn
     implementation("androidx.swiperefreshlayout:swiperefreshlayout:1.1.0")
+    //https://developer.android.google.cn/topic/libraries/architecture/paging/v3-overview
+    def paging_version = "3.1.0"
+    implementation("androidx.paging:paging-runtime:$paging_version")
 
 
 }

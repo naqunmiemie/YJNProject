@@ -6,9 +6,9 @@ import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.yjn.yjnproject.App
 import com.yjn.yjnproject.data.db.dao.UserDao
-import com.yjn.yjnproject.data.model.User
+import com.yjn.yjnproject.data.entity.GithubUser
 
-@Database(entities = [User::class],version = 1,exportSchema = false)
+@Database(entities = [GithubUser::class],version = 1,exportSchema = false)
 abstract class AppDatabase : RoomDatabase(){
     companion object{
         private const val databaseName = "YJNProject_db"

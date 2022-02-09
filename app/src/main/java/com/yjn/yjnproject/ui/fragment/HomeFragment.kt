@@ -32,17 +32,17 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
             homeViewModel.viewState.collect {
                 L.d("data changed")
                 GlideApp.with(this@HomeFragment)
-                    .load(it.user?.avatar_url)
+                    .load(it.githubUser?.avatar_url)
                     .fitCenter()
                     .circleCrop()
                     .into(binding.ivAvatarUrl)
-                binding.tvCreatedAt.text = it.user?.created_at
-                binding.tvFollowers.text = it.user?.followers.toString()
-                binding.tvHtmlUrl.text = it.user?.html_url
-                binding.tvLogin.text = it.user?.login
-                binding.tvType.text = it.user?.type
-                binding.tvUpdatedAt.text = it.user?.updated_at
-                binding.tvUrl.text = it.user?.url
+                binding.tvCreatedAt.text = it.githubUser?.created_at
+                binding.tvFollowers.text = it.githubUser?.followers.toString()
+                binding.tvHtmlUrl.text = it.githubUser?.html_url
+                binding.tvLogin.text = it.githubUser?.login
+                binding.tvType.text = it.githubUser?.type
+                binding.tvUpdatedAt.text = it.githubUser?.updated_at
+                binding.tvUrl.text = it.githubUser?.url
             }
         }
         binding.btnOk.setOnClickListener(View.OnClickListener {
