@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/layout/activity_leak.xml" value="0.12604166666666666" />
+        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/layout/activity_main.xml" value="0.11980749746707194" />
+        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/app/src/main/res/layout/fragment_message.xml" value="0.14130434782608695" />
+        <entry key="..\:/ORG_YJN/YJNKtProject/YJNProject/common/src/main/res/drawable-v24/image_loading_ic.xml" value="0.1735" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_discover.xml" value="0.19427083333333334" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.19427083333333334" />

@@ -10,6 +10,7 @@ import com.hjq.http.model.HttpParams
 import com.hjq.http.request.HttpRequest
 import com.tencent.mmkv.MMKV
 import com.yjn.common.Common
+import com.yjn.common.util.L
 import com.yjn.yjnproject.data.db.AppDatabase
 import com.yjn.yjnproject.data.net.model.RequestHandler
 import com.yjn.yjnproject.data.net.server.GithubServer
@@ -26,8 +27,13 @@ class App : Application(), ViewModelStoreOwner{
 
     override fun onCreate() {
         super.onCreate()
+        L.i("App onCreate")
         mInstance = this
-        init()
+        //只有主进程，才执行后续逻辑
+        if(packageName.equals(getProcessName())) {
+            L.i("main process init")
+            init()
+        }
     }
 
 
@@ -37,9 +43,9 @@ class App : Application(), ViewModelStoreOwner{
 
         MMKV.initialize(this)
 
-        var server = GithubServer()
+        val server = GithubServer()
 
-        var okHttpClient = OkHttpClient.Builder().build()
+        val okHttpClient = OkHttpClient.Builder().build()
 
         EasyConfig.with(okHttpClient) // 是否打印日志
             //.setLogEnabled(BuildConfig.DEBUG)

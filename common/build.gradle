@@ -13,6 +13,10 @@ android {
         versionName "1.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters 'armeabi','armeabi-v7a', 'arm64-v8a'
+        }
     }
 
     buildTypes {
@@ -54,4 +58,9 @@ dependencies {
     api 'com.github.getActivity:XXPermissions:13.2'
     // 吐司框架：https://github.com/getActivity/ToastUtils
     implementation 'com.github.getActivity:ToastUtils:10.0'
+    //https://square.github.io/leakcanary/getting_started/
+    debugImplementation 'com.squareup.leakcanary:leakcanary-android:2.8.1'
+    //https://bugly.qq.com/docs/user-guide/instruction-manual-android/?v=20220214194648
+    api 'com.tencent.bugly:crashreport:latest.release'
+    api 'com.tencent.bugly:nativecrashreport:latest.release'
 }

@@ -1,12 +1,9 @@
 package com.yjn.yjnproject.ui.activity
 
-import android.os.Bundle
-import android.view.MenuItem
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
-import com.yjn.common.util.L
 import com.yjn.yjnproject.R
 import com.yjn.yjnproject.databinding.ActivityMainBinding
 import com.yjn.yjnproject.ui.base.BaseActivity
