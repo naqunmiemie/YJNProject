@@ -1,21 +1,16 @@
 package com.yjn.yjnproject.ui.base
 
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.util.Log
 import android.view.LayoutInflater
-import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory
 import androidx.viewbinding.ViewBinding
-import com.yjn.common.util.L
 import com.yjn.yjnproject.App
-import com.yjn.yjnproject.ui.base.action.KeyboardAction
 import java.lang.reflect.ParameterizedType
 
-abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity(), KeyboardAction{
+abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
     /** 根布局 */
     lateinit var binding: VB
     private var mActivityProvider: ViewModelProvider? = null

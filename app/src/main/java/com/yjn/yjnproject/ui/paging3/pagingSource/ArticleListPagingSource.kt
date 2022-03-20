@@ -25,13 +25,13 @@ class ArticleListPagingSource(val viewModel: DiscoverViewModel) : PagingSource<I
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ArticleList.DataX> {
         try {
-            // Start refresh at page 1 if undefined.
-            val nextPageNumber = params.key ?: 1
+            // Start refresh at page 0 if undefined.
+            val nextPageNumber = params.key ?: 0
             val articleList = DiscoverRepository.getArticleList(viewModel,nextPageNumber)
             if (articleList != null) {
                 return LoadResult.Page(
                     data = articleList.data.datas,
-                    prevKey = nextPageNumber - 1,
+                    prevKey = null,
                     nextKey = nextPageNumber + 1
                 )
             }

@@ -1,6 +1,7 @@
 package com.yjn.yjnproject.ui.adapter
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.text.Html
 import android.text.Html.FROM_HTML_MODE_COMPACT
 import android.view.LayoutInflater
@@ -8,9 +9,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.TimeUtils
 import com.yjn.yjnproject.R
 import com.yjn.yjnproject.data.entity.ArticleList
+import com.yjn.yjnproject.ui.activity.WebViewActivity
 
 class ArticleQueryRecycleViewAdapter : RecyclerView.Adapter<ArticleQueryRecycleViewAdapter.ViewHolder>() {
 
@@ -44,6 +47,9 @@ class ArticleQueryRecycleViewAdapter : RecyclerView.Adapter<ArticleQueryRecycleV
         holder.tvSuperChapterName.text = "${dataList[position].chapterName}·${dataList[position].superChapterName}"
         holder.itemView.setOnClickListener {
 
+            ActivityUtils.startActivity(Intent(holder.itemView.context,WebViewActivity::class.java).apply {
+                putExtra(WebViewActivity.url,dataList[position].link)
+            })
         }
     }
 

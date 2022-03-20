@@ -1,12 +1,10 @@
 package com.yjn.yjnproject.ui.fragment
 
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.text.TextUtils
-import android.view.View
 import android.view.inputmethod.EditorInfo
-import android.view.inputmethod.InputMethodManager
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.blankj.utilcode.util.KeyboardUtils
 import com.google.android.flexbox.FlexboxLayoutManager
 import com.yjn.common.util.L
 import com.yjn.yjnproject.data.entity.Hotkey
@@ -40,14 +38,14 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         binding.ivSearch.setOnClickListener{
             binding.cetSearch.requestFocus()
-            showKeyboard(binding.cetSearch)
+            KeyboardUtils.showSoftInput()
         }
 
         binding.cetSearch.setOnEditorActionListener { v, actionId, event ->
             if (actionId == EditorInfo.IME_ACTION_SEARCH) {
                 if (!TextUtils.isEmpty(v.text.toString())) {
                     homeViewModel.sendEvent(HomeViewEvent.ArticleQueryEvent(v.text.toString()))
-                    hideKeyboard(v)
+                    KeyboardUtils.hideSoftInput(v)
                     v.text = ""
                     v.clearFocus()
                 }

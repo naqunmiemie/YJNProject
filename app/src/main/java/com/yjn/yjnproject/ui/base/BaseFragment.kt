@@ -9,10 +9,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
 import com.yjn.yjnproject.App
-import com.yjn.yjnproject.ui.base.action.KeyboardAction
 import java.lang.reflect.ParameterizedType
 
-abstract class BaseFragment<VB :ViewBinding> : Fragment(), KeyboardAction{
+abstract class BaseFragment<VB :ViewBinding> : Fragment() {
     private var mFragmentProvider: ViewModelProvider? = null
     private var mActivityProvider: ViewModelProvider? = null
     private var mApplicationProvider: ViewModelProvider? = null
