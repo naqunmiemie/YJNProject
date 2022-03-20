@@ -1,8 +1,9 @@
 package com.yjn.yjnproject.ui.viewState
 
-import com.yjn.yjnproject.data.entity.GithubUser
-import com.yjn.yjnproject.ui.base.BaseViewState
+import com.yjn.yjnproject.data.entity.ArticleList
+import com.yjn.yjnproject.data.entity.Hotkey
 
 data class HomeViewState(
-    var githubUser: GithubUser?
-):BaseViewState()
+    var hotkey: Hotkey? = null,
+    var articleList: ArticleList? = null
+)

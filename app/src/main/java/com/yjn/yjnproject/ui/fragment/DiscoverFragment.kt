@@ -3,7 +3,7 @@ package com.yjn.yjnproject.ui.fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yjn.yjnproject.databinding.FragmentDiscoverBinding
-import com.yjn.yjnproject.ui.adapter.WAndroidRecycleViewAdapter
+import com.yjn.yjnproject.ui.adapter.ArticleListRecycleViewAdapter
 import com.yjn.yjnproject.ui.base.BaseFragment
 import com.yjn.yjnproject.ui.viewModel.DiscoverViewModel
 import kotlinx.coroutines.flow.collect
@@ -21,7 +21,7 @@ class DiscoverFragment : BaseFragment<FragmentDiscoverBinding>() {
 
         val layoutManager = LinearLayoutManager(context)
         binding.rvWAndroid.layoutManager = layoutManager
-        val adapter = WAndroidRecycleViewAdapter()
+        val adapter = ArticleListRecycleViewAdapter()
         binding.rvWAndroid.adapter =  adapter
 
         lifecycleScope.launchWhenStarted {

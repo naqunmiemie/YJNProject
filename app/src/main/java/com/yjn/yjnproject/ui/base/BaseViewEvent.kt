@@ -1,4 +1,6 @@
 package com.yjn.yjnproject.ui.base
 
-open class BaseViewEvent {
+sealed class BaseViewEvent{
+    object InitEvent : BaseViewEvent()
+    object RefreshEvent: BaseViewEvent()
 }

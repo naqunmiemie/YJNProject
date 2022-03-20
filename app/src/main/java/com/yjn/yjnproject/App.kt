@@ -13,7 +13,7 @@ import com.yjn.common.Common
 import com.yjn.common.util.L
 import com.yjn.yjnproject.data.db.AppDatabase
 import com.yjn.yjnproject.data.net.model.RequestHandler
-import com.yjn.yjnproject.data.net.server.GithubServer
+import com.yjn.yjnproject.data.net.server.WAndroidServer
 import okhttp3.OkHttpClient
 
 class App : Application(), ViewModelStoreOwner{
@@ -43,14 +43,12 @@ class App : Application(), ViewModelStoreOwner{
 
         MMKV.initialize(this)
 
-        val server = GithubServer()
-
         val okHttpClient = OkHttpClient.Builder().build()
 
         EasyConfig.with(okHttpClient) // 是否打印日志
             //.setLogEnabled(BuildConfig.DEBUG)
             // 设置服务器配置
-            .setServer(server) // 设置请求处理策略
+            .setServer(WAndroidServer()) // 设置请求处理策略
             .setHandler(RequestHandler(this)) // 设置请求参数拦截器
             .setInterceptor(object : IRequestInterceptor {
                 override fun interceptArguments(

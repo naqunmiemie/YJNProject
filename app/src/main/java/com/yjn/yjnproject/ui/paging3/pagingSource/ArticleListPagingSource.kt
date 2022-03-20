@@ -3,12 +3,12 @@ package com.yjn.yjnproject.ui.paging3.pagingSource
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
 import com.yjn.common.util.T
-import com.yjn.yjnproject.data.entity.WAndroid
+import com.yjn.yjnproject.data.entity.ArticleList
 import com.yjn.yjnproject.data.repository.DiscoverRepository
 import com.yjn.yjnproject.ui.viewModel.DiscoverViewModel
 
-class WAndroidUserPagingSource(val viewModel: DiscoverViewModel) : PagingSource<Int, WAndroid.WAndroidUser>() {
-    override fun getRefreshKey(state: PagingState<Int, WAndroid.WAndroidUser>): Int? {
+class ArticleListPagingSource(val viewModel: DiscoverViewModel) : PagingSource<Int, ArticleList.DataX>() {
+    override fun getRefreshKey(state: PagingState<Int, ArticleList.DataX>): Int? {
         // Try to find the page key of the closest page to anchorPosition, from
         // either the prevKey or the nextKey, but you need to handle nullability
         // here:
@@ -23,14 +23,14 @@ class WAndroidUserPagingSource(val viewModel: DiscoverViewModel) : PagingSource<
         }
     }
 
-    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, WAndroid.WAndroidUser> {
+    override suspend fun load(params: LoadParams<Int>): LoadResult<Int, ArticleList.DataX> {
         try {
             // Start refresh at page 1 if undefined.
             val nextPageNumber = params.key ?: 1
-            val wAndroid = DiscoverRepository.searchAuthor(viewModel,nextPageNumber)
-            if (wAndroid != null) {
+            val articleList = DiscoverRepository.getArticleList(viewModel,nextPageNumber)
+            if (articleList != null) {
                 return LoadResult.Page(
-                    data = wAndroid.data,
+                    data = articleList.data.datas,
                     prevKey = nextPageNumber - 1,
                     nextKey = nextPageNumber + 1
                 )

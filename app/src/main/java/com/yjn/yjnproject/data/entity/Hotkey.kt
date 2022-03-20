@@ -1,17 +1,15 @@
 package com.yjn.yjnproject.data.entity
 
-data class WAndroid(
-    val `data`: List<WAndroidUser>,
+data class Hotkey(
+    val `data`: List<Data>,
     val errorCode: Int,
     val errorMsg: String
 ){
-    data class WAndroidUser(
-        val courseId: Int,
+    data class Data(
         val id: Int,
+        val link: String,
         val name: String,
         val order: Int,
-        val parentChapterId: Int,
-        val userControlSetTop: Boolean,
         val visible: Int
     )
 }

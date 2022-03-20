@@ -7,21 +7,21 @@ import android.widget.TextView
 import androidx.paging.PagingDataAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.yjn.yjnproject.R
-import com.yjn.yjnproject.data.entity.WAndroid
-import com.yjn.yjnproject.ui.adapter.comparator.WAndroidUserComparator
+import com.yjn.yjnproject.data.entity.ArticleList
+import com.yjn.yjnproject.ui.adapter.comparator.ArticleListComparator
 
-class WAndroidRecycleViewAdapter : PagingDataAdapter<WAndroid.WAndroidUser, WAndroidRecycleViewAdapter.ViewHolder>(WAndroidUserComparator) {
+class ArticleListRecycleViewAdapter : PagingDataAdapter<ArticleList.DataX, ArticleListRecycleViewAdapter.ViewHolder>(ArticleListComparator) {
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.tvName.text = getItem(position)?.name
+        holder.tvTitle.text = getItem(position)?.title
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_w_android,parent,false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.item_article_list,parent,false)
         return ViewHolder(view)
     }
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view){
-        val tvName: TextView = view.findViewById(R.id.tv_name)
+        val tvTitle: TextView = view.findViewById(R.id.tv_title)
     }
 
 

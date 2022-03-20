@@ -1,8 +1,6 @@
 package com.yjn.yjnproject.ui.viewEvent
 
-import com.yjn.yjnproject.ui.base.BaseViewEvent
-
-sealed class DiscoverViewEvent : BaseViewEvent() {
+sealed class DiscoverViewEvent {
     object InitWAndroidEvent : DiscoverViewEvent()
     object MoreWAndroidEvent: DiscoverViewEvent()
 }

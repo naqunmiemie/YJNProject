@@ -4,7 +4,8 @@ import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.*
 import kotlinx.coroutines.launch
 
-abstract class BaseViewModelMVI<ViewEvent:BaseViewEvent,ViewState:BaseViewState> : BaseViewModel() {
+
+abstract class BaseViewModelMVI<ViewState:Any> : BaseViewModel() {
     /**
      * 界面的初始状态
      */
@@ -26,12 +27,12 @@ abstract class BaseViewModelMVI<ViewEvent:BaseViewEvent,ViewState:BaseViewState>
      * 2.数据不是粘性的，消费一次就不会再次出现
      * 3.无法接收到 collect 之前发送的事件
      */
-    private val _viewEvent = MutableSharedFlow<ViewEvent>()
-    val viewEvent: SharedFlow<ViewEvent> = _viewEvent.asSharedFlow()
+    private val _viewEvent = MutableSharedFlow<Any>()
+    private val viewEvent: SharedFlow<Any> = _viewEvent.asSharedFlow()
 
     abstract fun providerInitialState(): ViewState
 
-    abstract fun handleEvent(viewEvent: ViewEvent)
+    abstract fun handleEvent(viewEvent: Any)
 
     init{
         subscribeEvents()
@@ -51,7 +52,7 @@ abstract class BaseViewModelMVI<ViewEvent:BaseViewEvent,ViewState:BaseViewState>
     /**
      * 发送意图
      */
-    fun sendEvent(viewEvent: ViewEvent) {
+    fun sendEvent(viewEvent: Any) {
         viewModelScope.launch {
             _viewEvent.emit(viewEvent)
         }
