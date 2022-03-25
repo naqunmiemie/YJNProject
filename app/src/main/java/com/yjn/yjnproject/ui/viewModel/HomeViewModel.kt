@@ -1,8 +1,8 @@
 package com.yjn.yjnproject.ui.viewModel
 
 import com.yjn.yjnproject.data.repository.HomeRepository
-import com.yjn.yjnproject.ui.base.BaseViewEvent
-import com.yjn.yjnproject.ui.base.BaseViewModelMVI
+import com.yjn.common.base.BaseViewEvent
+import com.yjn.common.base.BaseViewModelMVI
 import com.yjn.yjnproject.ui.viewEvent.HomeViewEvent
 import com.yjn.yjnproject.ui.viewState.HomeViewState
 

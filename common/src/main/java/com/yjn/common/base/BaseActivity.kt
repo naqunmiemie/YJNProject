@@ -1,4 +1,4 @@
-package com.yjn.yjnproject.ui.base
+package com.yjn.common.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,7 +7,6 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.ViewModelProvider.AndroidViewModelFactory
 import androidx.viewbinding.ViewBinding
-import com.yjn.yjnproject.App
 import java.lang.reflect.ParameterizedType
 
 abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
@@ -51,7 +50,7 @@ abstract class BaseActivity<VB : ViewBinding> : AppCompatActivity() {
 
     protected open fun <T : ViewModel?> getApplicationScopeViewModel(modelClass: Class<T>): T {
         if (mApplicationProvider == null) {
-            mApplicationProvider = ViewModelProvider(App.getInstance(),AndroidViewModelFactory(application))
+            mApplicationProvider = ViewModelProvider(BaseApplication.getInstance(),AndroidViewModelFactory(application))
         }
         return mApplicationProvider!![modelClass]
     }

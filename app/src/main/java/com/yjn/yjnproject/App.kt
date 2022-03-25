@@ -1,8 +1,5 @@
 package com.yjn.yjnproject
 
-import android.app.Application
-import androidx.lifecycle.ViewModelStore
-import androidx.lifecycle.ViewModelStoreOwner
 import com.hjq.http.EasyConfig
 import com.hjq.http.config.IRequestInterceptor
 import com.hjq.http.model.HttpHeaders
@@ -10,35 +7,21 @@ import com.hjq.http.model.HttpParams
 import com.hjq.http.request.HttpRequest
 import com.tencent.mmkv.MMKV
 import com.yjn.common.Common
-import com.yjn.common.util.L
+import com.yjn.common.base.BaseApplication
 import com.yjn.yjnproject.data.db.AppDatabase
 import com.yjn.yjnproject.data.net.model.RequestHandler
 import com.yjn.yjnproject.data.net.server.WAndroidServer
 import okhttp3.OkHttpClient
 
-class App : Application(), ViewModelStoreOwner{
+class App : BaseApplication() {
     companion object{
-        private lateinit var mInstance : App
         private lateinit var database : AppDatabase
-        fun getInstance(): App{
-            return mInstance
-        }
-    }
-
-    override fun onCreate() {
-        super.onCreate()
-        L.i("App onCreate")
-        mInstance = this
-        //只有主进程，才执行后续逻辑
-        if(packageName.equals(getProcessName())) {
-            L.i("main process init")
-            init()
-        }
     }
 
 
-    private fun init() {
-        Common.init(mInstance)
+
+    override fun initMainProcess() {
+        Common.init(this)
         database = AppDatabase.getInstance(this)
 
         MMKV.initialize(this)
@@ -61,12 +44,6 @@ class App : Application(), ViewModelStoreOwner{
             }) // 设置请求重试次数
             .setRetryCount(1) // 设置请求重试时间
             .setRetryTime(2000) // 添加全局请求参数
-            //                .addParam("token", "yjn")
             .into()
-
-    }
-
-    override fun getViewModelStore(): ViewModelStore {
-        TODO("Not yet implemented")
     }
 }

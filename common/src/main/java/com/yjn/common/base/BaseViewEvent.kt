@@ -1,4 +1,4 @@
-package com.yjn.yjnproject.ui.base
+package com.yjn.common.base
 
 sealed class BaseViewEvent{
     object InitEvent : BaseViewEvent()

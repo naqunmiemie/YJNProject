@@ -1,4 +1,4 @@
-package com.yjn.yjnproject.ui.base.action
+package com.yjn.common.base.action
 
 import android.os.Bundle
 import android.os.Parcelable

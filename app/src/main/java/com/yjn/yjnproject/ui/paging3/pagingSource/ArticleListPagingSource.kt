@@ -2,7 +2,7 @@ package com.yjn.yjnproject.ui.paging3.pagingSource
 
 import androidx.paging.PagingSource
 import androidx.paging.PagingState
-import com.yjn.common.util.T
+import com.hjq.toast.ToastUtils
 import com.yjn.yjnproject.data.entity.ArticleList
 import com.yjn.yjnproject.data.repository.DiscoverRepository
 import com.yjn.yjnproject.ui.viewModel.DiscoverViewModel
@@ -16,7 +16,7 @@ class ArticleListPagingSource(val viewModel: DiscoverViewModel) : PagingSource<I
         //  * nextKey == null -> anchorPage is the last page.
         //  * both prevKey and nextKey null -> anchorPage is the initial page, so
         //    just return null.
-        T.show("refresh")
+        ToastUtils.show("refresh")
         return state.anchorPosition?.let { anchorPosition ->
             val anchorPage = state.closestPageToPosition(anchorPosition)
             anchorPage?.prevKey?.plus(1) ?: anchorPage?.nextKey?.minus(1)

@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import com.yjn.common.base.BaseApplication
 import com.yjn.yjnproject.App
 import com.yjn.yjnproject.data.db.dao.UserDao
 import com.yjn.yjnproject.data.entity.GithubUser
@@ -18,7 +19,7 @@ abstract class AppDatabase : RoomDatabase(){
         fun getInstance(context: Context): AppDatabase {
             if (databaseInstance == null) {
                 databaseInstance = Room.databaseBuilder(
-                    App.getInstance(),
+                    BaseApplication.getInstance(),
                     AppDatabase::class.java, databaseName
                 ).build()
 

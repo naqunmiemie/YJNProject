@@ -4,7 +4,7 @@ import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.yjn.yjnproject.databinding.FragmentDiscoverBinding
 import com.yjn.yjnproject.ui.adapter.ArticleListRecycleViewAdapter
-import com.yjn.yjnproject.ui.base.BaseFragment
+import com.yjn.common.base.BaseFragment
 import com.yjn.yjnproject.ui.viewModel.DiscoverViewModel
 import kotlinx.coroutines.flow.collect
 

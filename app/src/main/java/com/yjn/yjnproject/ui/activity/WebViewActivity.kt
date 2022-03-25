@@ -1,7 +1,7 @@
 package com.yjn.yjnproject.ui.activity
 
 import com.yjn.yjnproject.databinding.ActivityWebViewBinding
-import com.yjn.yjnproject.ui.base.BaseActivity
+import com.yjn.common.base.BaseActivity
 
 class WebViewActivity : BaseActivity<ActivityWebViewBinding>() {
     companion object{

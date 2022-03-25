@@ -1,117 +1,126 @@
-package com.yjn.common.util;
+package com.yjn.common.util
 
-import android.text.TextUtils;
-import android.util.Log;
+import com.blankj.utilcode.util.AppUtils
+import com.yjn.common.util.L
+import android.text.TextUtils
+import android.util.Log
 
-import com.blankj.utilcode.util.AppUtils;
-
-public class L {
-    private static String tagPrefix = AppUtils.getAppPackageName().split("\\.")[AppUtils.getAppPackageName().split("\\.").length-1]+"Log";
-//    private static boolean isShow = AppUtils.isAppDebug();
-    private static boolean isShow = true;
-    private static boolean showV = isShow;
-    private static boolean showD = isShow;
-    private static boolean showI = isShow;
-    private static boolean showW = isShow;
-    private static boolean showE = isShow;
-    private static boolean showWTF = isShow;
+object L {
+    private val tagPrefix =
+        AppUtils.getAppPackageName().split("\\.").toTypedArray()[AppUtils.getAppPackageName()
+            .split("\\.").toTypedArray().size - 1] + "Log"
+//    private val isShow = AppUtils.isAppDebug()
+    private const val isShow = true
+    private val showV: Boolean = isShow
+    private val showD: Boolean = isShow
+    private val showI: Boolean = isShow
+    private val showW: Boolean = isShow
+    private val showE: Boolean = isShow
+    private val showWTF: Boolean = isShow
 
     /**
      * 得到tag（所在类.方法（L:行））
      * @return
      */
-    private static String generateTag() {
-        StackTraceElement stackTraceElement = Thread.currentThread().getStackTrace()[4];
-        String callerClazzName = stackTraceElement.getClassName();
-        callerClazzName = callerClazzName.substring(callerClazzName.lastIndexOf(".") + 1);
-        String tag = "%s.%s(L:%d)";
-        tag = String.format(tag, new Object[]{callerClazzName, stackTraceElement.getMethodName(), Integer.valueOf(stackTraceElement.getLineNumber())});
+    private fun generateTag(): String {
+        val stackTraceElement = Thread.currentThread().stackTrace[4]
+        var callerClazzName = stackTraceElement.className
+        callerClazzName = callerClazzName.substring(callerClazzName.lastIndexOf(".") + 1)
+        var tag = "%s.%s(L:%d)"
+        tag = String.format(
+            tag,
+            *arrayOf<Any>(
+                callerClazzName,
+                stackTraceElement.methodName,
+                Integer.valueOf(stackTraceElement.lineNumber)
+            )
+        )
         //给tag设置前缀
-        tag = TextUtils.isEmpty(tagPrefix) ? tag : tagPrefix + ":" + tag;
-        return tag;
+        tag = if (TextUtils.isEmpty(tagPrefix)) tag else tagPrefix + ":" + tag
+        return tag
     }
 
-    public static void v(String msg) {
+    fun v(msg: String?) {
         if (showV) {
-            String tag = generateTag();
-            Log.v(tag, msg);
+            val tag = generateTag()
+            Log.v(tag, msg!!)
         }
     }
 
-    public static void v(String msg, Throwable tr) {
+    fun v(msg: String?, tr: Throwable?) {
         if (showV) {
-            String tag = generateTag();
-            Log.v(tag, msg, tr);
+            val tag = generateTag()
+            Log.v(tag, msg, tr)
         }
     }
 
-    public static void d(String msg) {
+    fun d(msg: String?) {
         if (showD) {
-            String tag = generateTag();
-            Log.d(tag, msg);
+            val tag = generateTag()
+            Log.d(tag, msg!!)
         }
     }
 
-    public static void d(String msg, Throwable tr) {
+    fun d(msg: String?, tr: Throwable?) {
         if (showD) {
-            String tag = generateTag();
-            Log.d(tag, msg, tr);
+            val tag = generateTag()
+            Log.d(tag, msg, tr)
         }
     }
 
-    public static void i(String msg) {
+    fun i(msg: String?) {
         if (showI) {
-            String tag = generateTag();
-            Log.i(tag, msg);
+            val tag = generateTag()
+            Log.i(tag, msg!!)
         }
     }
 
-    public static void i(String msg, Throwable tr) {
+    fun i(msg: String?, tr: Throwable?) {
         if (showI) {
-            String tag = generateTag();
-            Log.i(tag, msg, tr);
+            val tag = generateTag()
+            Log.i(tag, msg, tr)
         }
     }
 
-    public static void w(String msg) {
+    fun w(msg: String?) {
         if (showW) {
-            String tag = generateTag();
-            Log.w(tag, msg);
+            val tag = generateTag()
+            Log.w(tag, msg!!)
         }
     }
 
-    public static void w(String msg, Throwable tr) {
+    fun w(msg: String?, tr: Throwable?) {
         if (showW) {
-            String tag = generateTag();
-            Log.w(tag, msg, tr);
+            val tag = generateTag()
+            Log.w(tag, msg, tr)
         }
     }
 
-    public static void e(String msg) {
+    fun e(msg: String?) {
         if (showE) {
-            String tag = generateTag();
-            Log.e(tag, msg);
+            val tag = generateTag()
+            Log.e(tag, msg!!)
         }
     }
 
-    public static void e(String msg, Throwable tr) {
+    fun e(msg: String?, tr: Throwable?) {
         if (showE) {
-            String tag = generateTag();
-            Log.e(tag, msg, tr);
+            val tag = generateTag()
+            Log.e(tag, msg, tr)
         }
     }
 
-    public static void wtf(String msg) {
+    fun wtf(msg: String?) {
         if (showWTF) {
-            String tag = generateTag();
-            Log.wtf(tag, msg);
+            val tag = generateTag()
+            Log.wtf(tag, msg)
         }
     }
 
-    public static void wtf(String msg, Throwable tr) {
+    fun wtf(msg: String?, tr: Throwable?) {
         if (showWTF) {
-            String tag = generateTag();
-            Log.wtf(tag, msg, tr);
+            val tag = generateTag()
+            Log.wtf(tag, msg, tr)
         }
     }
 }

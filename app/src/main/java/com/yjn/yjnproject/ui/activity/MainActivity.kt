@@ -6,7 +6,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.yjn.yjnproject.R
 import com.yjn.yjnproject.databinding.ActivityMainBinding
-import com.yjn.yjnproject.ui.base.BaseActivity
+import com.yjn.common.base.BaseActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>() {
 

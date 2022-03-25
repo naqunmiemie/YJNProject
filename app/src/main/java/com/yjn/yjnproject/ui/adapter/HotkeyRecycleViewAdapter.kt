@@ -45,9 +45,10 @@ class HotkeyRecycleViewAdapter : RecyclerView.Adapter<HotkeyRecycleViewAdapter.V
         return dataList.size
     }
 
+    interface ItemClickListener {
+        fun onItemClick(data: Hotkey.Data, int: Int)
+    }
 }
 
-interface ItemClickListener {
-    fun onItemClick(data: Hotkey.Data, int: Int)
-}
+
 

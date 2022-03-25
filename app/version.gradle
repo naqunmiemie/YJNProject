@@ -2,7 +2,7 @@
 updateVersion()
 
 def updateVersion() {
-    def propertiesFile = file("build.properties")
+    def propertiesFile = file("version.properties")
     Properties properties = readProperties(propertiesFile)
 
     def versionCode = properties["version_code"].toString().toInteger()

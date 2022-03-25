@@ -1,4 +1,4 @@
-package com.yjn.yjnproject.ui.base.action
+package com.yjn.common.base.action
 
 import android.view.View
 import androidx.annotation.IdRes

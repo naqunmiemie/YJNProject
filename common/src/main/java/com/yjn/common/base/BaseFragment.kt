@@ -1,4 +1,4 @@
-package com.yjn.yjnproject.ui.base
+package com.yjn.common.base
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import androidx.viewbinding.ViewBinding
-import com.yjn.yjnproject.App
 import java.lang.reflect.ParameterizedType
 
 abstract class BaseFragment<VB :ViewBinding> : Fragment() {
@@ -79,7 +78,7 @@ abstract class BaseFragment<VB :ViewBinding> : Fragment() {
         if (mActivityProvider == null && activity != null) {
 
             mActivityProvider = activity?.let {
-                ViewModelProvider(it, ViewModelProvider.AndroidViewModelFactory(App.getInstance()))
+                ViewModelProvider(it, ViewModelProvider.AndroidViewModelFactory(BaseApplication.getInstance()))
             }
         }
         return mApplicationProvider!![modelClass]
@@ -88,8 +87,8 @@ abstract class BaseFragment<VB :ViewBinding> : Fragment() {
     protected open fun <T : ViewModel?> getApplicationScopeViewModel(modelClass: Class<T>): T {
         if (mApplicationProvider == null) {
             mApplicationProvider = ViewModelProvider(
-                App.getInstance(),
-                ViewModelProvider.AndroidViewModelFactory(App.getInstance())
+                BaseApplication.getInstance(),
+                ViewModelProvider.AndroidViewModelFactory(BaseApplication.getInstance())
             )
         }
         return mApplicationProvider!![modelClass]

@@ -1,9 +1,8 @@
 package com.yjn.yjnproject.ui.activity
 
 import android.os.Handler
-import android.os.Message
 import com.yjn.yjnproject.databinding.ActivityLeakBinding
-import com.yjn.yjnproject.ui.base.BaseActivity
+import com.yjn.common.base.BaseActivity
 
 class LeakActivity : BaseActivity<ActivityLeakBinding>() {
     private val mHandler: Handler = Handler(mainLooper) {

@@ -11,9 +11,8 @@ import com.yjn.yjnproject.data.entity.Hotkey
 import com.yjn.yjnproject.databinding.FragmentHomeBinding
 import com.yjn.yjnproject.ui.adapter.ArticleQueryRecycleViewAdapter
 import com.yjn.yjnproject.ui.adapter.HotkeyRecycleViewAdapter
-import com.yjn.yjnproject.ui.adapter.ItemClickListener
-import com.yjn.yjnproject.ui.base.BaseFragment
-import com.yjn.yjnproject.ui.base.BaseViewEvent
+import com.yjn.common.base.BaseFragment
+import com.yjn.common.base.BaseViewEvent
 import com.yjn.yjnproject.ui.viewEvent.HomeViewEvent
 import com.yjn.yjnproject.ui.viewModel.HomeViewModel
 import kotlinx.coroutines.flow.collect
@@ -56,7 +55,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>() {
 
         binding.rvHotkey.layoutManager = FlexboxLayoutManager(activity)
         binding.rvHotkey.adapter = HotkeyRecycleViewAdapter().apply {
-            setOnItemClickListener(object : ItemClickListener {
+            setOnItemClickListener(object : HotkeyRecycleViewAdapter.ItemClickListener {
                 override fun onItemClick(data: Hotkey.Data, int: Int) {
                     homeViewModel.sendEvent(HomeViewEvent.ArticleQueryEvent(data.name))
                 }
